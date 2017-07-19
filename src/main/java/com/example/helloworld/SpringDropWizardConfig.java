@@ -3,7 +3,6 @@ package com.example.helloworld;
 import java.util.Properties;
 
 import org.hibernate.SessionFactory;
-import org.hibernate.cfg.ImprovedNamingStrategy;
 import org.hibernate.dialect.H2Dialect;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -11,7 +10,6 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
 import org.springframework.orm.hibernate4.HibernateTransactionManager;
-import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.example.helloworld.db.PersonDAO;
@@ -32,7 +30,8 @@ public class SpringDropWizardConfig {
         return new PersistenceExceptionTranslationPostProcessor();
     }
 
-    private Properties hibernateProperties() {
+    @SuppressWarnings("unused")
+	private Properties hibernateProperties() {
         Properties properties = new Properties();
 
         properties.setProperty("hibernate.dialect", H2Dialect.class.getName());

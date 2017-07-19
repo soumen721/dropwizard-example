@@ -30,7 +30,8 @@ public class PersonDAO1 extends AbstractDAO<Person1> {
     	return person;
     }
 
-    public List<Person1> findAll() {
+    @SuppressWarnings("unchecked")
+	public List<Person1> findAll() {
         return list(namedQuery("com.example.helloworld.core.Person1.findAll"));
     }
 }
